@@ -7,17 +7,16 @@ import { BaseComponentProps } from '@/types'
 
 interface MainLayoutProps extends BaseComponentProps {
   className?: string
+  mainClassName?: string
 }
 
-export function MainLayout({ children, className }: MainLayoutProps) {
+export function MainLayout({ children, className, mainClassName }: MainLayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className={cn('min-h-screen flex flex-col bg-slate-950 text-slate-100', className)}>
       <Header />
-      
-      <main className={cn('flex-1 container mx-auto px-4 py-8', className)}>
-        {children}
-      </main>
-      
+
+      <main className={cn('flex-1 container mx-auto px-4 py-10', mainClassName)}>{children}</main>
+
       <Footer />
     </div>
   )
